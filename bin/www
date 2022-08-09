@@ -13,15 +13,12 @@ const Sockets = require("../sockets/sockets");
  *  Connection with the DB
  */
 
-mongoose.connect(
-  "mongodb+srv://admin:ZHvKh61Hl1i3pqpI@cluster0.ir5brzk.mongodb.net/space-invaders?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    // useFindAndModify: false,
-    // useCreateIndex: true,
-  }
-);
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  // useFindAndModify: false,
+  // useCreateIndex: true,
+});
 
 /**
  * Get port from environment and store in Express.
