@@ -17,6 +17,18 @@ class Sockets {
         // emitiendo un evento al id de la session del juego y del control
         this.io.to(data.sessionGame).emit("move-ship", data);
       });
+      socket.on("pause", (data) => {
+        //escuchando la indicación de pausar
+        console.log(data);
+        //emitiendo un evento al id de la session del juego y el control
+        this.io.to(data.sessionGame).emit("action-pause", data);
+      });
+      // evento para iniciar juego desde el control
+      socket.on("event-start", (data) => {
+        //escuchando data desde el control
+        console.log(data);
+        this.io.to(data.sessionGame).emit("start");
+      });
     });
   }
 }
