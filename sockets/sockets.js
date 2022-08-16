@@ -27,7 +27,7 @@ class Sockets {
       socket.on("event-start", (data) => {
         //escuchando data desde el control
         console.log(data);
-        this.io.to(data.sessionGame).emit("start");
+        this.io.to(data.sessionGame).emit("start", data);
       });
     });
   }
